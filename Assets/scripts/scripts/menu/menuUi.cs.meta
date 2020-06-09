@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5520a5d27a64f9842a39f5f69986ed1c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shop: {fileID: 8349189359456445211, guid: 6147eb23e8d7ff04ea04287da03a81ee, type: 3}
+  - infin: {fileID: 1511692955201990835, guid: 98639d20dccb55f4bb82f50be44124f6, type: 3}
+  - play: {fileID: 5674657961231637405, guid: 14a0ff3ffedeced44946255289c02d8e, type: 3}
+  - puzzl: {fileID: 7126091536288585189, guid: 0376bc3a186fc71478e5cf330e0235a4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
