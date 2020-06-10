@@ -41,8 +41,6 @@ public class CamHelpLim : MonoBehaviour
        			 	if (  Sector.Length == 3 &&  (col.gameObject.tag == "Player") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f  )
        			 	{
        			 	
-       			 			Debug.Log(Sector[1].transform.position.x);
-       			 			Debug.Log(Sector[2].transform.position.x);
        			 	leftLimit =   Sector[0].transform.position.x;
        			 	rightLimit =  Sector[0].transform.position.x;
        			 	bottomLimit = Sector[2].transform.position.y;
