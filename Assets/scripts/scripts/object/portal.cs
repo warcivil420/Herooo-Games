@@ -7,7 +7,7 @@ public class portal : MonoBehaviour
 	public GameObject NextPortal;
    	
 
-   	
+   	public static bool flagBullet=false;
    	public static float Poz;
 
 
@@ -25,6 +25,7 @@ public class portal : MonoBehaviour
 		{
 			Poz = NextPortal.transform.localEulerAngles.z;
 			Bullet_0.flag = !Bullet_0.flag;
+			flagBullet = true;
 		}
 
 		else 

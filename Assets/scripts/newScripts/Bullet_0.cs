@@ -24,11 +24,14 @@ public class Bullet_0 : MonoBehaviour
     	
         if (Input.GetKey(destrButt))
         {
+        if(portal.flagBullet)
+        {
+         portal.flagBullet = false;
          CamHelpLim.leftLimit   = CamHelpLim.Limit[0];
          CamHelpLim.rightLimit  = CamHelpLim.Limit[1];
          CamHelpLim.upperLimit  = CamHelpLim.Limit[2];
          CamHelpLim.bottomLimit = CamHelpLim.Limit[3];
- 
+ 		}
          PlayerControllerChar.isFire = true;
          PlayerControllerChar.isTp = true;
          Destroy(this.gameObject);
