@@ -9,7 +9,7 @@ public class CamHelpLim : MonoBehaviour
    public static float bottomLimit;
    public static float upperLimit;
    public GameObject[] Sector;
-
+   public static float[] Limit = new float[4]{0, 0, 0, 0};
 
 	void Start(){
 
@@ -22,31 +22,68 @@ public class CamHelpLim : MonoBehaviour
        			 if ( Sector.Length < 2 &&  (col.gameObject.tag == "Player") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f) 
        			 {
 
-       			 	leftLimit = Sector[0].transform.position.x;
-       			 	rightLimit = Sector[0].transform.position.x;
-       			 	bottomLimit = Sector[0].transform.position.y;
-       			 	upperLimit = Sector[0].transform.position.y;
+       			 	leftLimit   =  Sector[0].transform.position.x;
+       			 	rightLimit  =  Sector[0].transform.position.x;
+       			 	bottomLimit =  Sector[0].transform.position.y;
+       			 	upperLimit  =  Sector[0].transform.position.y;
        			 }
-       			 else
-       			 	if (  Sector.Length == 2 &&  (col.gameObject.tag == "Player") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f  )
+
+              else
+              if (  Sector.Length < 2 &&  (col.gameObject.tag == "Bullet") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f  )
+              {
+                
+              Limit[0] =  Sector[0].transform.position.x;
+              Limit[1] =  Sector[0].transform.position.x;
+              Limit[2] =  Sector[0].transform.position.y;
+              Limit[3] =  Sector[0].transform.position.y;
+
+              }
+       			
+             else
+       			 if (  Sector.Length == 2 &&  (col.gameObject.tag == "Player") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f  )
        			 	{
        			 		
-       			 	leftLimit =   Sector[0].transform.position.x;
-       			 	rightLimit =  Sector[1].transform.position.x;
-       			 	bottomLimit = Sector[0].transform.position.y;
-       			 	upperLimit =  Sector[0].transform.position.y;
+       			 	leftLimit   =  Sector[0].transform.position.x;
+       			 	rightLimit  =  Sector[1].transform.position.x;
+       			 	bottomLimit =  Sector[0].transform.position.y;
+       			 	upperLimit  =  Sector[0].transform.position.y;
 
        			 	}
-       				 else
+
+
+              else
+              if(  Sector.Length == 2 &&  (col.gameObject.tag == "Bullet") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f  )
+              {
+                
+              Limit[0] =  Sector[0].transform.position.x;
+              Limit[1] =  Sector[1].transform.position.x;
+              Limit[2] =  Sector[0].transform.position.y;
+              Limit[3] =  Sector[0].transform.position.y;
+
+              }
+
+       			
+            	else
        			 	if (  Sector.Length == 3 &&  (col.gameObject.tag == "Player") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f  )
        			 	{
        			 	
-       			 	leftLimit =   Sector[0].transform.position.x;
-       			 	rightLimit =  Sector[0].transform.position.x;
-       			 	bottomLimit = Sector[2].transform.position.y;
-       			 	upperLimit =  Sector[1].transform.position.y;
+       			 	leftLimit   =  Sector[0].transform.position.x;
+       			 	rightLimit  =  Sector[0].transform.position.x;
+       			 	bottomLimit =  Sector[2].transform.position.y;
+       			 	upperLimit  =  Sector[1].transform.position.y;
 
        			 	}
+
+              else
+              if (  Sector.Length == 3 &&  (col.gameObject.tag == "Bullet") && Vector2.Distance(transform.position, col.transform.position ) > 0.5f  )
+              {
+              
+              Limit[0] =  Sector[0].transform.position.x;
+              Limit[1] =  Sector[0].transform.position.x;
+              Limit[2] =  Sector[2].transform.position.y;
+              Limit[3] =  Sector[1].transform.position.y;
+
+              }
 
     		}                  
  }

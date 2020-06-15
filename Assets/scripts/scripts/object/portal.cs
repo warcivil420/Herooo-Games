@@ -24,7 +24,6 @@ public class portal : MonoBehaviour
 		if ((paun.tag == "Bullet") && (Bullet_0.flag))
 		{
 			Poz = NextPortal.transform.localEulerAngles.z;
-			Debug.Log(Poz);
 			Bullet_0.flag = !Bullet_0.flag;
 		}
 

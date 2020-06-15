@@ -38,6 +38,24 @@ public class switchCamera : MonoBehaviour
  		
 		}
 
-			
+
+public void MobileButUp()
+{
+
+     GetComponent<camcontroller>().enabled = false;
+     ﻿﻿﻿﻿﻿transform.DOMove(focusCam.position, 1);
+     cam.DOOrthoSize(9f, 1);
+
+}
+		
+public void MobileButDown()
+{
+
+    GetComponent<camcontroller>().enabled = true;
+    transform.DOMove(new Vector3(CamHelpLim.leftLimit, CamHelpLim.upperLimit, -10f), 1);
+    cam.DOOrthoSize(2f, 1);
+
+}
+    
 
 }
