@@ -18,7 +18,7 @@ public class Bullet_0 : MonoBehaviour
     	
 
     	rb.velocity = transform.right*speed;
-    	transform.rotation = Quaternion.Euler(0, 0, portal.Poz); 
+    	transform.rotation = Quaternion.Euler(0, 0, portal.Poz); // переписать
         
         flagPos = rb.transform.position;
     	
