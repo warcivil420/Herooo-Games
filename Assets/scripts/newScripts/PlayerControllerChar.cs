@@ -5,12 +5,15 @@ using System.Collections;
 
 public class PlayerControllerChar : MonoBehaviour {
 
+	Animator anim;
+
+
 	public enum ProjectAxis {onlyX = 0, xAndY = 1};
 	public ProjectAxis projectAxis = ProjectAxis.onlyX;
 	
 	public bool lookAtCursor;
 	private bool jump;
-	public bool isFacingRight = true;
+	public static bool isFacingRight = true;
 	public static bool isFire = true;
 	public static bool isTp = false;
 
@@ -31,14 +34,15 @@ public class PlayerControllerChar : MonoBehaviour {
 
 	private Rigidbody2D body;
 
-	public Transform firePoint;
 
-    public GameObject bullet;
 
-    GameObject bulletPos;
+    
+
+    
 
 	void Start () 
 	{
+		anim = GetComponent<Animator>();
 		body = GetComponent<Rigidbody2D>();
 		body.fixedAngle = true;
 
@@ -109,8 +113,22 @@ public class PlayerControllerChar : MonoBehaviour {
 
 
 
-		if(Input.GetKey(leftButton)) horizontal = -1;
-		else if(Input.GetKey(rightButton)) horizontal = 1; else horizontal = 0;
+		if(Input.GetKey(leftButton)) 
+		{
+			anim.SetBool("isStep", true);
+			horizontal = -1;
+		}
+		else if(Input.GetKey(rightButton))
+		{
+		 anim.SetBool("isStep", true);		
+		 horizontal = 1; 
+		}
+
+		else
+		{
+		 anim.SetBool("isStep", false);
+		 horizontal = 0;
+		}
 
 	
 		if(projectAxis == ProjectAxis.onlyX) 
@@ -119,17 +137,20 @@ public class PlayerControllerChar : MonoBehaviour {
 		}
 		else 
 		{
-			if(Input.GetKeyDown(addForceButton)) speed += addForce; else if(Input.GetKeyUp(addForceButton)) speed -= addForce;
+			if(Input.GetKeyDown(addForceButton)) 
+			{
+				speed += addForce;
+			}
+
+			else if(Input.GetKeyUp(addForceButton))
+			{
+			    speed -= addForce;
+			}
+
 			direction = new Vector2(horizontal, vertical);
 		}
 
 		if(horizontal > 0 && !isFacingRight) Flip(); else if(horizontal < 0 && isFacingRight) Flip();
-	
-		if(Input.GetKey(FireButton) && isFire)
-		{
-		isFire = false;
-		bulletPos = Instantiate(bullet, firePoint.position, Quaternion.Euler(0f, 0f, 90f));	
-		}
 
 		if(isTp)
 		{

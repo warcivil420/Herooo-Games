@@ -18,8 +18,20 @@ public class Bullet_0 : MonoBehaviour
     	
 
     	rb.velocity = transform.right*speed;
-    	transform.rotation = Quaternion.Euler(0, 0, portal.Poz); // переписать
+    	if(PlayerControllerChar.isFacingRight)
+    	{
+    	rb.velocity = transform.right*speed*-1f;
+    	transform.rotation = Quaternion.Euler(0, 0, 180); // переписать
         
+        }
+
+        else
+        {
+        	rb.velocity = transform.right*speed;
+        	transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        }
+
         flagPos = rb.transform.position;
     	
         if (Input.GetKey(destrButt))
